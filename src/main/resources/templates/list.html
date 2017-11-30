@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Add A Course</title>
+</head>
+<body>
+<a href="/add">Post a Tweet</a>
+<table>
+    <tr>
+        <th>Tweet</th>
+        <th>Posted By</th>
+    </tr>
+    <tr th:each="tweetmessage : ${tweetmessages}">
+        <td th:text="${tweetmessage.content}"></td>
+        <td th:text="${tweetmessage.date}"></td>
+      <td th:text="${tweetmessage.postedby}"></td>
+        <td>
+            <a th:href="@{/update/{id}(id=${tweetmessage.id})}">Update</a> -
+            <a th:href="@{/detail/{id}(id=${tweetmessage.id})}">Details</a> -
+            <a th:href="@{/delete/{id}(id=${tweetmessage.id})}">Delete</a>
+        </td>
+    </tr>
+
+</table>
+</body>
+</html>
